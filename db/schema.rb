@@ -10,12 +10,17 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_07_174216) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_07_224724) do
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "admin", default: false
+    t.decimal "min_price", precision: 6, scale: 2, default: "0.0"
+    t.decimal "max_price", precision: 6, scale: 2, default: "9999.99"
+    t.integer "price_percent", default: 100, null: false
+    t.decimal "max_outstanding_tab", precision: 6, scale: 2, default: "0.0"
   end
 
 end

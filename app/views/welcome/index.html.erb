@@ -3,6 +3,15 @@
 	Logged in as: <%= Current.user.email %><br>
 	<%= link_to 'Edit Password', edit_password_path %>
 	<%= button_to 'Logout', logout_path, method: :delete %>
+	<% if Current.user.admin %>
+		<p>
+			You are an admin!
+		</p>
+	<% else %>
+		<p>
+			You are a user :(
+		</p>
+	<% end %>
 <% else %>
 	<%= link_to 'Sign Up', sign_up_path %>
 	or
