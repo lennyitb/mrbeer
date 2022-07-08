@@ -20,5 +20,8 @@ Rails.application.routes.draw do
   # patch 'password/reset/edit', to: 'password_resets#update'
 
   get 'admin', to: 'admin/dashboard#index'
+  get 'admin/change_price', to: 'admin/dashboard#change_price', as: 'change_price'
+  post 'admin/change_price', to: 'admin/dashboard#update_price', as: 'update_price'
+
   get 'beerme', to: 'beerme#index'
 end

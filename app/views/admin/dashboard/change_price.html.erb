@@ -1,0 +1,13 @@
+<h1>Change beer price</h1>
+
+<%= form_with url: update_price_path do |f| %>
+	<p>
+		<%= f.label 'New beer price' %><br>
+		<%= f.text_field :new_price %>
+	</p>
+	<p>
+		<%= f.submit 'Submit' %>
+	</p>
+<% end %>
+
+<p><a href="/admin">Go Back</a> <a href="/">Go Home</a></p>
