@@ -5,8 +5,11 @@ class ApplicationController < ActionController::Base
 
 	before_action :set_current_user
 
-	PersistantObj.persistantpath = 'persistant'
-	$beerprice = PersistantObj.new name: 'beerprice', input_filter: /^\d{1,4}(\.\d{1,2})?$/, output_format: "%0.2f"
+	unless defined? $beerprice
+		PersistantObj.persistantpath = 'persistant'
+		$beerprice = PersistantObj.new name: 'beerprice', input_filter: /^\d{1,4}(\.\d{1,2})?$/, output_format: "%0.2f"
+	end
+
 	def set_current_user
 		Current.user = User.find_by(id: session[:user_id]) if session[:user_id]
 	end
@@ -20,4 +23,9 @@ class ApplicationController < ActionController::Base
 			redirect_to sign_in_path, alert: 'You must be signed in as admin' unless Current.user.admin
 		end
 	end
+
+	def not_found
+		render file: "#{Rails.root}/public/404.html",  status: 404
+	end
+	
 end

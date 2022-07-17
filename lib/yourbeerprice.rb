@@ -1,5 +1,7 @@
 module YourBeerPrice
 	def getbeerprice currentuser
+		include Persistant
+
 		urate = (currentuser.price_percent.to_f/100) * $beerprice.value.to_f
 		umin = currentuser.min_price
 		umax = currentuser.max_price

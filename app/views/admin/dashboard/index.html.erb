@@ -6,12 +6,14 @@
 </p>
 <table>
 	<tr>
-		<td>ID</td>
-		<td>Email</td>
-		<td>Price Percent</td>
-		<td>Min Price</td>
-		<td>Max Price</td>
-		<td>Max Tab</td>
+		<th>ID</th>
+		<th>Email</th>
+		<th>Price Percent</th>
+		<th>Min Price</th>
+		<th>Max Price</th>
+		<th>Max Tab</th>
+		<th>Admin Status</th>
+		<th>Edit User</th>
 	</tr>
 	<% User.all.each do |user| %><tr>
 		<td><%= user.id %></td>
@@ -20,5 +22,7 @@
 		<td><%= user.min_price %></td>
 		<td><%= user.max_price %></td>
 		<td><%= user.max_outstanding_tab %></td>
+		<td><%= user.admin.to_s.capitalize %></td>
+		<td><%= link_to 'Edit', user_page_path(user) %></td>
 	</tr><% end %>
 </table>

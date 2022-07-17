@@ -1,0 +1,58 @@
+<h1>Mr. Beer Administration Dashboard</h1>
+<h3>Modify User</h3>
+<p>User: <%= @user.email %></p>
+<%= form_with model: @user, url: update_user_path do |u| %>
+	<p><table>
+		<tr>
+			<th>Attribute</th>
+			<th>Value</th>
+			<th>Edit</th>
+		</tr>
+		<tr>
+			<td>ID</td>
+			<td><%= @user.id %></td>
+			<td>...</td>
+		</tr>
+		<tr>
+			<td>Email</td>
+			<td><%= @user.email %></td>
+			<td><%= u.text_field :email %>
+		</tr>
+		<tr>
+			<td>Admin</td>
+			<td><%= @user.admin.to_s.capitalize %></td>
+			<!--<td><%= u.check_box :admin, {checked: @user.admin, disabled: @admin_enabled } %></td>-->
+			<td><%= u.check_box :admin, { disabled: @admin_enabled } %></td>
+		</tr>
+		<tr>
+			<td>Account Enabled</td>
+			<td>True</td>
+			<td><i>checkbox here</i></td>
+		</tr>
+		<tr>
+			<td>Price %</td>
+			<td><%= @user.price_percent %></td>
+			<td><%= u.text_field :price_percent %>
+		</tr>
+		<tr>
+			<td>Min. Price</td>
+			<td><%= @user.min_price %></td>
+			<td><%= u.text_field :min_price %>
+		</tr>
+		<tr>
+			<td>Max Price</td>
+			<td><%= @user.max_price %></td>
+			<td><%= u.text_field :max_price %>
+		</tr>
+		<tr>
+			<td>Max Tab</td>
+			<td><%= ->(x) { if x == nil; "null" else x end }.call @user.max_outstanding_tab %></td>
+			<td><%= u.text_field :max_outstanding_tab %>
+		</tr>
+	</table></p>
+	<table><tr>
+		<td>Delete User</td>
+		<td><%= u.submit 'Update User' %></td>
+	</tr></table>
+<% end %>
+<p><a href="/admin">Go Back</a></p>

@@ -22,6 +22,8 @@ Rails.application.routes.draw do
   get 'admin', to: 'admin/dashboard#index'
   get 'admin/change_price', to: 'admin/dashboard#change_price', as: 'change_price'
   post 'admin/change_price', to: 'admin/dashboard#update_price', as: 'update_price'
+  get 'admin/users/:user_id', to: 'admin/user#show', as: 'user_page'
+  patch 'admin/users/:user_id', to: 'admin/user#update_user', as: 'update_user'
 
   get 'beerme', to: 'beerme#index'
 end
