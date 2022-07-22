@@ -1,6 +1,7 @@
 <h1>Mr. Beer</h1>
 <% if Current.user %>
 	Logged in as: <%= Current.user.email %><br>
+	Your current tab: <strong><%= Current.user.format_tab %></strong>
 	<p><%= link_to 'BEER ME', beerme_path %></p>
 	<%= link_to 'Edit Password', edit_password_path %>
 	<%= link_to 'Logout', logout_path %>

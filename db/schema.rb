@@ -10,7 +10,16 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_07_224724) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_17_071131) do
+  create_table "orders", force: :cascade do |t|
+    t.integer "user_id"
+    t.decimal "charge_amount", precision: 6, scale: 2, default: "0.0", null: false
+    t.string "message"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", null: false
     t.string "password_digest"

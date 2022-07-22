@@ -1,0 +1,13 @@
+<h1>Mr. Beer</h1>
+<h3>Apply payment</h3>
+<p>User: <%= @user.email %><br>
+Enter payment amount, or enter a negative value to apply a charge</p>
+<%= form_with url: apply_payment_path do |f| %>
+	<div>
+		<%= f.label 'Payment Amount' %>
+		<%= f.text_field :payment_amount %>
+	</div><div>
+		<%= f.submit 'Apply Payment' %>
+	</div>
+<% end %>
+<p><a href="/admin">Go Back</a></p>

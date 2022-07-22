@@ -12,17 +12,21 @@
 		<th>Min Price</th>
 		<th>Max Price</th>
 		<th>Max Tab</th>
+		<th>Current Tab</th>
 		<th>Admin Status</th>
 		<th>Edit User</th>
+		<th>Apply Payment/Charge</th>
 	</tr>
 	<% User.all.each do |user| %><tr>
 		<td><%= user.id %></td>
 		<td><%= user.email %></td>
-		<td><%= user.price_percent %></td>
-		<td><%= user.min_price %></td>
-		<td><%= user.max_price %></td>
-		<td><%= user.max_outstanding_tab %></td>
+		<td><%= user.price_percent %>%</td>
+		<td>$<%= "%0.2f" % user.min_price %></td>
+		<td>$<%= "%0.2f" % user.max_price %></td>
+		<td><%= user.format_max_tab %></td>
+		<td><%= user.format_tab %></td>
 		<td><%= user.admin.to_s.capitalize %></td>
 		<td><%= link_to 'Edit', user_page_path(user) %></td>
+		<td><%= link_to 'Edit', payment_page_path(user) %></td>
 	</tr><% end %>
 </table>

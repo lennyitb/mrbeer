@@ -1,4 +1,6 @@
 <h1>Mr. Beer</h1>
 <h2><strong>BEER ME</strong></h2>
 <p>Your current beer rate is <strong>$<%= Current.price %></strong>
+<p>Your current tab is <strong><%= Current.user.format_tab %></strong>
+<p><%= button_to 'BEER ME', beer_me_path %>
 <p><a href="/">Go Back</a></p>
