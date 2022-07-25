@@ -39,6 +39,13 @@ class Admin::UserController < ApplicationController
 		end
 	end
 
+	def delete_user
+		user = find_user
+		uname = user.email
+		user.destroy
+		redirect_to admin_path, notice: 'Successfully deleted user '  << uname
+	end
+
 private
 	def find_user
 		User.find(params[:user_id])

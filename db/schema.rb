@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_07_17_071131) do
+ActiveRecord::Schema[7.0].define(version: 2022_07_23_191410) do
   create_table "orders", force: :cascade do |t|
     t.integer "user_id"
     t.decimal "charge_amount", precision: 6, scale: 2, default: "0.0", null: false
@@ -30,6 +30,11 @@ ActiveRecord::Schema[7.0].define(version: 2022_07_17_071131) do
     t.decimal "max_price", precision: 6, scale: 2, default: "9999.99"
     t.integer "price_percent", default: 100, null: false
     t.decimal "max_outstanding_tab", precision: 6, scale: 2, default: "0.0"
+    t.string "username"
+    t.string "nickname"
+    t.string "phone"
+    t.boolean "enabled", default: true
+    t.boolean "verified", default: false
   end
 
 end

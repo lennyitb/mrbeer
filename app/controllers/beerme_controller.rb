@@ -7,5 +7,6 @@ class BeermeController < ApplicationController
 	def beerme
 		# Order.create user_id: Current.user.id, charge_amount: Current.price
 		Current.user.orders.create charge_amount: Current.price
+		redirect_to root_path, notice: 'Your beer has been ordered'
 	end
 end

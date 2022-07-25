@@ -1,0 +1,9 @@
+<h1>Mr. Beer</h1>
+<h3>Verify Phone Number</h3>
+<p>Enter your five digit verification code below</p>
+<%= form_with url: verify_phone_path do |f| %><p>
+	<%= f.label 'Verification Code' %><br>
+	<%= f.number_field :verification_code %>
+</p><p>
+	<%= f.submit 'Submit' %>	
+</p><% end %>

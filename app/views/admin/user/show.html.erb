@@ -50,9 +50,7 @@
 			<td><%= u.text_field :max_outstanding_tab %>
 		</tr>
 	</table></p>
-	<table><tr>
-		<td>Delete User</td>
-		<td><%= u.submit 'Update User' %></td>
-	</tr></table>
+		<%= u.submit 'Update User' %>
 <% end %>
+<%= button_to 'Delete User', { action: 'delete_user' }, method: :delete, turbo_confirm: 'Delete user: are you sure?' %>
 <p><a href="/admin">Go Back</a></p>

@@ -44,6 +44,10 @@ gem "bootsnap", require: false
 
 gem 'bcrypt', '~> 3.1.7'
 
+gem 'phonelib'
+
+gem 'twilio-ruby'
+
 # Use Sass to process CSS
 # gem "sassc-rails"
 
