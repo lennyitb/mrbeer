@@ -8,7 +8,7 @@ class RegistrationsController < ApplicationController
 			session[:user_id] = @user.id
 			# redirect_to root_path, notice: 'Successfully created account'
 			# set_current_user
-			redirect_to verify_phone_path
+			redirect_to verify_phone_path, notice: 'Successfully created account'
 		else
 			render :new
 		end
@@ -18,7 +18,7 @@ class RegistrationsController < ApplicationController
 		require_user_logged_in!
 		user = User.find session[:user_id]
 		if user.verified == true then redirect_to index_path, notice: 'Your phone is already verified!' end
-		session[:user_vcode] = rand(100000).to_s
+		session[:user_vcode] = ("%05d" % rand(100000)).to_s
 		client = Twilio::REST::Client.new
 		message = client.messages.create(
 			messaging_service_sid: 'MG8e9eabfe2f53c6d812aa3d404f52d061',
