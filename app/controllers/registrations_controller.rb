@@ -22,8 +22,7 @@ class RegistrationsController < ApplicationController
 		client = Twilio::REST::Client.new
 		message = client.messages.create(
 			messaging_service_sid: 'MG8e9eabfe2f53c6d812aa3d404f52d061',
-			to: '+17749943082',
-			# to: user.phone,
+			to: user.phone,
 			body: 'your Mr. Beer verification code is: ' << session[:user_vcode]
 		)
 	end
