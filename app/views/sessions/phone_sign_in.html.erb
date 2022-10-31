@@ -1,0 +1,12 @@
+<h1>Mr. Beer</h1>
+<h3>Sign in by Phone</h3>
+<%= form_with url: phone_sign_in_submit_path do |f| %>
+	<p>
+		<%= f.label 'phone number' %><br>
+		<%= f.telephone_field :phone %>
+	</p>
+	<p>
+		<%= f.submit 'Log In' %>
+	</p>
+	<p><a href="/">Go Back</a></p>
+<% end %>

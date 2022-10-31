@@ -5,6 +5,14 @@
 		<%= f.text_field :email %>
 	</p>
 	<p>
+		<%= f.label 'username' %><br>
+		<%= f.text_field :username %>
+	</p>
+	<p>
+		<%= f.label 'first name' %><br>
+		<%= f.text_field :nickname %>
+	</p>
+	<p>
 		<%= f.label 'phone number' %><br>
 		<%= f.telephone_field :phone %>
 	<p>
@@ -18,4 +26,5 @@
 	<p>
 		<%= f.submit 'Sign Up' %>
 	</p>
+	<p><a href="/">Go Back</a></p>
 <% end %>

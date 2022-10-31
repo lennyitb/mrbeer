@@ -2,9 +2,10 @@ class User < ApplicationRecord
 	has_many :orders, dependent: :destroy
 
 	has_secure_password
-	validates :email, presence: true, uniqueness: true, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'Invalid email' }
-	validates :phone, presence: true, uniqueness: true, phone: true
-	before_save :normalize_phone
+	before_validation :normalize_phone
+	validates :email, presence: true, uniqueness: {message: 'This email is already in use'}, format: { with: /\A[^@\s]+@[^@\s]+\z/, message: 'Invalid email' }
+	validates :phone, presence: {message: 'Phone number is required'}, uniqueness: {message: 'This phone number is already in use'}, phone: {message: 'Invalid phone number'}
+	# before_save :normalize_phone
 
 	attr_accessor :vcode
 
@@ -36,7 +37,7 @@ class User < ApplicationRecord
 
 	def verify_user
 	end
-private
+p
 	def normalize_phone
 		self.phone = Phonelib.parse(phone).full_e164.presence
 	end

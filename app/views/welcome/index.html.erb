@@ -3,13 +3,12 @@
 	Logged in as: <%= Current.user.email %><br>
 	Your current tab: <strong><%= Current.user.format_tab %></strong>
 	<p><%= link_to 'BEER ME', beerme_path %></p>
-	<%= link_to 'Edit Password', edit_password_path %>
-	<%= link_to 'Logout', logout_path %>
+	<p><%= link_to 'Change Password', edit_password_path %> or <%= link_to 'Edit Profile', edit_profile_path %></p>
+	<p><%= link_to 'Logout', logout_path %></p>
 	<% if Current.user.admin %>
 		<p><%= link_to 'Admin Dashboard', admin_path %></p>
 	<% end %>
 <% else %>
-	<%= link_to 'Sign Up', sign_up_path %>
-	or
-	<%= link_to 'Login', sign_in_path %>
+	<p><%= link_to 'Sign up', sign_up_path %> or <%= link_to 'Login', sign_in_path %></p>
+	<p><%= link_to 'Sign in by phone', phone_sign_in_path %></p>
 <% end %>

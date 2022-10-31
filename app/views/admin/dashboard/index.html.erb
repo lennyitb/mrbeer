@@ -8,6 +8,9 @@
 	<tr>
 		<th>ID</th>
 		<th>Email</th>
+		<th>Username</th>
+		<th>Name</th>
+		<th>Phone</th>
 		<th>Price Percent</th>
 		<th>Min Price</th>
 		<th>Max Price</th>
@@ -20,6 +23,9 @@
 	<% User.all.each do |user| %><tr>
 		<td><%= user.id %></td>
 		<td><%= user.email %></td>
+		<td><%= user.username %></td>
+		<td><%= user.nickname %></td>
+		<td><%= user.format_phone %></td>
 		<td><%= user.price_percent %>%</td>
 		<td>$<%= "%0.2f" % user.min_price %></td>
 		<td>$<%= "%0.2f" % user.max_price %></td>

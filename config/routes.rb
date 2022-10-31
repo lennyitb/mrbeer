@@ -10,11 +10,19 @@ Rails.application.routes.draw do
   get 'sign_in', to: 'sessions#new'
   post 'sign_in', to: 'sessions#create', as: 'log_in'
 
+  get 'phone_sign_in', to: 'sessions#phone_sign_in'
+  post 'phone_sign_in_submit', to: 'sessions#phone_sign_in_submit'
+
+  get 'phone_sign_in_verify', to: 'sessions#phone_sign_in_verify'
+  post 'phone_sign_in_verify', to: 'sessions#phone_sign_in_verify_submit'
+
   get 'logout', to: 'sessions#destroy'
 
   get 'password', to: 'passwords#edit', as: 'edit_password'
   patch 'password', to: 'passwords#update'
 
+  get 'profile', to: 'profiles#edit', as: 'edit_profile'
+  patch 'profile', to: 'profiles#update'
   # get 'password/reset', to: 'password_resets#new'
   # post 'password/reset', to: 'password_resets#create'
 
